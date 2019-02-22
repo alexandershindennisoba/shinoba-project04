@@ -3,10 +3,6 @@
 const myWeatherApp = {};
 myWeatherApp.apiUrl = 'http://api.openweathermap.org/data/2.5/weather';
 myWeatherApp.apiKey = '53676921d77f931b9699b38ab357d31e';
-
-const myArtApp = {};
-myArtApp.apiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
-myArtApp.apiKey = 'ge9zS0UR';
   
 
 // Weather Promise
@@ -59,8 +55,6 @@ myWeatherApp.getUserCity = (city) => {
     console.log(error);
   })
 }
-
-
     
 
 // const imageList = res.artObjects[i].map()
