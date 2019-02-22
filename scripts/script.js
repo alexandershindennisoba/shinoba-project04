@@ -5,7 +5,7 @@ myApp.apiUrl = 'http://api.openweathermap.org/data/2.5/weather';
   
 
   myApp.getUserCity = (city) => {
-    console.log(`the city is ${city}`);
+    // console.log(`the city is ${city}`);
     $.ajax({
       url: myApp.apiUrl,
       method: 'GET',
@@ -19,7 +19,8 @@ myApp.apiUrl = 'http://api.openweathermap.org/data/2.5/weather';
       }
     }).then((res) => {
       console.log('it worked');
-      console.log(res);
+      console.log(res.weather[0].main);
+      //round temperature down.
     })
   }
   
@@ -28,9 +29,10 @@ myApp.apiUrl = 'http://api.openweathermap.org/data/2.5/weather';
     myApp.getUserCity('toronto');
   }
   
-  
   // DOC READY
   $(function (){
     myApp.init();
     // console.log('Ready');
 });
+
+
