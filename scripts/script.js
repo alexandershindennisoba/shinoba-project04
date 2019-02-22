@@ -18,8 +18,8 @@ myApp.apiUrl = 'http://api.openweathermap.org/data/2.5/weather';
         units: 'metric'
       }
     }).then((res) => {
-      console.log('it worked');
-      console.log(res.weather[0].main);
+      // console.log('it worked');
+      // console.log(res.weather[0].main);
       //round temperature down.
     })
   }
