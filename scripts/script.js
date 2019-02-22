@@ -3,32 +3,6 @@
 const myWeatherApp = {};
 myWeatherApp.apiUrl = 'http://api.openweathermap.org/data/2.5/weather';
 myWeatherApp.apiKey = '53676921d77f931b9699b38ab357d31e';
-
-<<<<<<< HEAD
-  myApp.getUserCity = (city) => {
-    // console.log(`the city is ${city}`);
-    $.ajax({
-      url: myApp.apiUrl,
-      method: 'GET',
-      appid: myApp.apiKey,
-      dataType: 'json',
-      data: {
-        appid: myApp.apiKey,
-        format: 'json',
-        q: city,
-        units: 'metric'
-      }
-    }).then((res) => {
-      // console.log('it worked');
-      // console.log(res.weather[0].main);
-      //round temperature down.
-    })
-  }
-=======
-const myArtApp = {};
-myArtApp.apiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
-myArtApp.apiKey = 'ge9zS0UR';
->>>>>>> 9e465a9cad57859e1a7b38f53d7a5a5360bcdcc5
   
 
 // Weather Promise
@@ -81,8 +55,6 @@ myWeatherApp.getUserCity = (city) => {
     console.log(error);
   })
 }
-
-
     
 
 // const imageList = res.artObjects[i].map()

@@ -6,7 +6,8 @@
         "partials/_01-variables.scss",
         "partials/_02-setup.scss",
         "partials/_03-global.scss",
-        "partials/_04-app-style.scss"
+        "partials/_04-app-style.scss",
+        "partials/_05-app-style.scss"
     ],
     "names": [],
     "file": "style.css"
