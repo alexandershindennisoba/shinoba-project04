@@ -11,7 +11,6 @@ myArtApp.apiKey = 'ge9zS0UR';
 
 // Weather Promise
 myWeatherApp.getUserCity = (city) => {
-  // console.log(`the city is ${city}`);
   myWeatherApp.getWeather = $.ajax({
     url: myWeatherApp.apiUrl,
     method: 'GET',
@@ -25,7 +24,7 @@ myWeatherApp.getUserCity = (city) => {
     }
   }).then((res) => {
     // console.log('it worked');
-    // console.log(res);
+    console.log(res.weather[0].main);
     myArtApp.getArt(res.weather[0].main)
   })
   .fail((error) => {
@@ -34,9 +33,7 @@ myWeatherApp.getUserCity = (city) => {
 };
 
 // Art Promise
-// const getArt = (weatherCondition) => {
   myArtApp.getArt = (query) => {
-  // console.log(`the art is of ${query}`);
   // console.log(query);
   myArtApp.getArt = $.ajax({
     url: myArtApp.apiUrl,
@@ -47,25 +44,28 @@ myWeatherApp.getUserCity = (city) => {
       format: 'json',
       q: query
     }
-  }).then((res) => {
-    // console.log(res.artObjects[0].webImage.url);
-    const artList = res.artObjects.filter((value) => {
-      return value.webImage.url != ''
-    });
-    console.log(artList);
- 
+    }).then((res) => {
+      console.log(res.artObjects);
+      // const artList = res.artObjects.filter((value) => {
+      //   return value.webImage.url != ''
+      // });
+      // console.log(artList);
+      // console.log(res);
+      const imageList = res.artObjects.filter(piece =>{
+        if(piece.hasImage === true) {
+          console.log(piece.webImage.url)
+        }
+      })
+    }).fail((error) => {
+      console.log(error);
+    })
+  }
+
+
+
     
-  }).fail((error) => {
-    console.log(error);
-  })
-}
-
-
-    
-
 // const imageList = res.artObjects[i].map()
 // imageList = [0, 1, ]
-
 
 
 // myArtApp.displayArt = (pieces) => {
@@ -77,7 +77,7 @@ myWeatherApp.getUserCity = (city) => {
 
   // Start myWeatherApp
   myWeatherApp.init = () => {
-    myWeatherApp.getUserCity('vancouver');
+    myWeatherApp.getUserCity('seoul');
     // myArtApp.getArt();
   }
   
