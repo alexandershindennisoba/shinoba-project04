@@ -9,26 +9,6 @@ myArtApp.apiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
 myArtApp.apiKey = 'ge9zS0UR';
   
 
-// myApp.getUserCity = (city) => {
-//   console.log(`the city is ${city}`);
-//   $.ajax({
-//     url: myApp.apiUrl,
-//     method: 'GET',
-//     appid: myApp.apiKey,
-//     dataType: 'json',
-//     data: {
-//       appid: myApp.apiKey,
-//       format: 'json',
-//       q: city,
-//       units: 'metric'
-//     }
-//   }).then((res) => {
-//     console.log('it worked');
-//     console.log(res);
-//     getArtThing(res.weather.main)
-//   })
-// };
-
 // Weather Promise
 myWeatherApp.getUserCity = (city) => {
   // console.log(`the city is ${city}`);
@@ -68,13 +48,22 @@ myWeatherApp.getUserCity = (city) => {
       q: query
     }
   }).then((res) => {
-    // console.log('art is working');
-    console.log(res.artObjects[0].webImage.url);
+    // console.log(res.artObjects[0].webImage.url);
+    console.log(res.artObjects);
+    const artList = res.artObjects[i].map();
+    console.log(artList);
+
+
     // myArtApp.displayArt(res.artObjects);
   }).fail((error) => {
     console.log(error);
   })
 }
+
+// const imageList = res.artObjects[i].map()
+// imageList = [0, 1, ]
+
+
 
 // myArtApp.displayArt = (pieces) => {
 //   console.log(pieces);
@@ -83,10 +72,9 @@ myWeatherApp.getUserCity = (city) => {
 // }
 
 
-
   // Start myWeatherApp
   myWeatherApp.init = () => {
-    myWeatherApp.getUserCity('toronto');
+    myWeatherApp.getUserCity('vancouver');
     // myArtApp.getArt();
   }
   
