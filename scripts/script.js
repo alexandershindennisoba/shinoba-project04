@@ -37,7 +37,7 @@ myWeatherApp.getUserCity = (city) => {
 // const getArt = (weatherCondition) => {
   myArtApp.getArt = (query) => {
   // console.log(`the art is of ${query}`);
-  console.log(query);
+  // console.log(query);
   myArtApp.getArt = $.ajax({
     url: myArtApp.apiUrl,
     method: 'GET',
@@ -49,16 +49,19 @@ myWeatherApp.getUserCity = (city) => {
     }
   }).then((res) => {
     // console.log(res.artObjects[0].webImage.url);
-    console.log(res.artObjects);
-    const artList = res.artObjects[i].map();
+    const artList = res.artObjects.filter((value) => {
+      return value.webImage.url != ''
+    });
     console.log(artList);
-
-
-    // myArtApp.displayArt(res.artObjects);
+ 
+    
   }).fail((error) => {
     console.log(error);
   })
 }
+
+
+    
 
 // const imageList = res.artObjects[i].map()
 // imageList = [0, 1, ]
@@ -82,7 +85,6 @@ myWeatherApp.getUserCity = (city) => {
   $(function (){
     myWeatherApp.init();
     // console.log('Ready');
-<<<<<<< HEAD
   });
 
 // PSEUDO CODE
@@ -91,8 +93,3 @@ myWeatherApp.getUserCity = (city) => {
 // THAT IS THE VALUE THAT WILL BE 
 // run reijk museum api into above
 // cheeck classical music, sort according to weather
-=======
-});
-
-
->>>>>>> f7a00dcbacfd980c67bd462bbec3bee23cfafb7b
