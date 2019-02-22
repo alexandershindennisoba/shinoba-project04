@@ -78,11 +78,11 @@ myWeatherApp.getUserCity = (city) => {
     // myArtApp.getArt();
   }
   
-  
   // DOC READY
   $(function (){
     myWeatherApp.init();
     // console.log('Ready');
+<<<<<<< HEAD
   });
 
 // PSEUDO CODE
@@ -91,3 +91,8 @@ myWeatherApp.getUserCity = (city) => {
 // THAT IS THE VALUE THAT WILL BE 
 // run reijk museum api into above
 // cheeck classical music, sort according to weather
+=======
+});
+
+
+>>>>>>> f7a00dcbacfd980c67bd462bbec3bee23cfafb7b
