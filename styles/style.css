@@ -131,9 +131,12 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+<<<<<<< HEAD
 
 body {
   font-size: 125%; }
+=======
+>>>>>>> 9e465a9cad57859e1a7b38f53d7a5a5360bcdcc5
 
 .super-container {
   width: 70%;
@@ -145,7 +148,12 @@ body {
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
+<<<<<<< HEAD
   align-items: center; }
+=======
+  align-items: center;
+  border: 1px solid red; }
+>>>>>>> 9e465a9cad57859e1a7b38f53d7a5a5360bcdcc5
 
 .app-container {
   margin: 2 auto;
@@ -153,6 +161,7 @@ body {
   height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
+<<<<<<< HEAD
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -164,10 +173,14 @@ body {
 .painting-container {
   height: 100%;
   width: 100%; }
+=======
+  display: flex; }
+>>>>>>> 9e465a9cad57859e1a7b38f53d7a5a5360bcdcc5
 
 .painting {
   height: 500px;
   width: 50%;
+<<<<<<< HEAD
   border-radius: 40px 0 0 40px;
   background: url(../assets/images/painting-1.jpg);
   background-size: cover;
@@ -207,10 +220,15 @@ h1::after {
   border: 5px solid white;
   border-radius: 50%;
   position: absolute; }
+=======
+  border: 1px solid green;
+  border-radius: 40px 0 0 40px; }
+>>>>>>> 9e465a9cad57859e1a7b38f53d7a5a5360bcdcc5
 
 .info {
   height: 500px;
   width: 50%;
+<<<<<<< HEAD
   border-radius: 0 40px 40px 0;
   -webkit-box-shadow: 2px 5px 20px #e6e6e6;
   box-shadow: 2px 5px 20px #e6e6e6;
@@ -218,3 +236,7 @@ h1::after {
   top: 0;
   right: 0;
   bottom: 0; }
+=======
+  border: 1px solid green;
+  border-radius: 0 40px 40px 0; }
+>>>>>>> 9e465a9cad57859e1a7b38f53d7a5a5360bcdcc5
