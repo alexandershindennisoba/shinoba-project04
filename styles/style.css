@@ -131,13 +131,40 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+<<<<<<< HEAD
+
+body {
+  font-size: 125%; }
+=======
+
+* {
+  padding: 0;
+  margin: 0; }
 
 body {
   font-size: 125%; }
 
+h2, h3, li {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #666666;
+  word-spacing: 2px; }
+
+h3 {
+  font-size: .8rem; }
+
+ul {
+  list-style: none; }
+
+button {
+  text-decoration: none; }
+>>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
+
 .super-container {
   width: 70%;
-  max-width: 800px;
+  max-width: 700px;
   height: 100vh;
   margin: 0 auto;
   display: -webkit-box;
@@ -158,7 +185,10 @@ body {
   -ms-flex-align: center;
   align-items: center;
   position: relative;
+<<<<<<< HEAD
   border-radius: 40px;
+=======
+>>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
   background: white; }
 
 .painting-container {
@@ -168,10 +198,11 @@ body {
 .painting {
   height: 450px;
   width: 50%;
-  border-radius: 40px 0 0 40px;
+  border-radius: 20px 0 0 20px;
   background: url(../assets/images/painting-1.jpg);
   background-size: cover;
   background-position: center;
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -181,7 +212,11 @@ body {
   width: 50%;
   height: 125px;
   z-index: 10;
+<<<<<<< HEAD
   background: rgba(0, 0, 0, 0.2);
+=======
+  background: rgba(0, 0, 0, 0.1);
+>>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
   position: absolute; }
 
 .disp-temp {
@@ -211,10 +246,93 @@ h1::after {
 .info {
   height: 450px;
   width: 50%;
-  border-radius: 0 40px 40px 0;
+  border-radius: 0 20px 20px 0;
   -webkit-box-shadow: 2px 5px 20px #e6e6e6;
   box-shadow: 2px 5px 20px #e6e6e6;
   position: absolute;
   top: 0;
   right: 0;
+<<<<<<< HEAD
   bottom: 0; }
+=======
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer; }
+
+.info-painting,
+.info-weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.info-painting {
+  text-align: center;
+  height: 44px; }
+
+.info-weather {
+  height: 85px;
+  display: none; }
+  .info-weather li {
+    font-size: .85rem; }
+
+button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  z-index: 30;
+  background: #f8f8f8;
+  cursor: pointer;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
+  button .music {
+    height: 10px;
+    width: 10px;
+    margin: 0 auto;
+    background: #9a9a9a;
+    border-radius: 50%;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease; }
+
+button:hover .music {
+  background: #e6e6e6; }
+
+@media (max-width: 600px) {
+  .app-container {
+    border-radius: 20px;
+    height: 550px; }
+  .painting {
+    width: 100%;
+    height: 550px;
+    border-radius: 20px;
+    -webkit-box-shadow: 2px 5px 20px grey;
+    box-shadow: 2px 5px 20px grey;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .info {
+    display: none; }
+  button {
+    display: none; } }
+>>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
