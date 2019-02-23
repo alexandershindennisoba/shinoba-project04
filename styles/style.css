@@ -131,11 +131,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
-<<<<<<< HEAD
-
-body {
-  font-size: 125%; }
-=======
 
 * {
   padding: 0;
@@ -160,7 +155,6 @@ ul {
 
 button {
   text-decoration: none; }
->>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
 
 .super-container {
   width: 70%;
@@ -185,10 +179,6 @@ button {
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-<<<<<<< HEAD
-  border-radius: 40px;
-=======
->>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
   background: white; }
 
 .painting-container {
@@ -212,11 +202,7 @@ button {
   width: 50%;
   height: 125px;
   z-index: 10;
-<<<<<<< HEAD
-  background: rgba(0, 0, 0, 0.2);
-=======
   background: rgba(0, 0, 0, 0.1);
->>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
   position: absolute; }
 
 .disp-temp {
@@ -252,9 +238,6 @@ h1::after {
   position: absolute;
   top: 0;
   right: 0;
-<<<<<<< HEAD
-  bottom: 0; }
-=======
   bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -335,4 +318,3 @@ button:hover .music {
     display: none; }
   button {
     display: none; } }
->>>>>>> 6c73885d5822d3c2f51e172c574285c97218c378
