@@ -1,97 +1,146 @@
-//Weather Api 
-const myWeatherApp = {};
-myWeatherApp.apiUrl = 'http://api.openweathermap.org/data/2.5/weather';
-myWeatherApp.apiKey = '53676921d77f931b9699b38ab357d31e';
+const shinobaApp = {}
+shinobaApp.weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather';
+shinobaApp.weatherApiKey = '53676921d77f931b9699b38ab357d31e';
+shinobaApp.artApiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
+shinobaApp.artApiKey = 'ge9zS0UR';
 
-  
-const myArtApp = {};
-myArtApp.apiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
-myArtApp.apiKey = 'ge9zS0UR';
->>>>>>> 98145eb5efa1c83f6a8c1899d2d7a2035a6d1017
-
-// Weather Promise
-myWeatherApp.getUserCity = (city) => {
-  myWeatherApp.getWeather = $.ajax({
-    url: myWeatherApp.apiUrl,
-    method: 'GET',
-    appid: myWeatherApp.apiKey,
-    dataType: 'json',
-    data: {
-      appid: myWeatherApp.apiKey,
-      format: 'json',
-      q: city,
-      units: 'metric'
-    }
-  }).then((res) => {
-    // Gives the result of the city weather condition and input that condition into getArt
-    myArtApp.getArt(res.weather[0].main)
-  })
-  .fail((error) => {
-    // console.log(error);
-  })
-};
-
-// Art Promise
-
-  myArtApp.getArt = (query) => {
-  myArtApp.getArt = $.ajax({
-    url: myArtApp.apiUrl,
-    method: 'GET',
-    dataType: 'json',
-    data: {
-      key: myArtApp.apiKey,
-      format: 'json',
-      q: query
-    }
-  }).then((res) => {
-    // res is result of the query weather condition. gives back an object with array of artObjects
-    // console.log(res);
-    const artList = res.artObjects.filter((piece) => {
-      // only returns images with value of true
-      return piece.hasImage != ''
-    });
-    console.log(artList);
-    // take array of returned images and run a for loop
-    // for(let i = 0; i < artList.length; i++) {
-      // returns indexes of array
-      // choose random array index
-    
-    // map through the array and return array of image urls
-    const filteredArtList = artList.map((piece) => {
-      return piece.webImage.url
-    })
-    console.log(filteredArtList);
-    
-    const randomArtImage = Math.floor(Math.random() * filteredArtList.length);
-    console.log(filteredArtList[randomArtImage]);
-
-    // }
-  }).fail((error) => {
-    console.log(error);
-  })
-}
-
-// const imageList = res.artObjects[i].map()
-// imageList = [0, 1, ]
->>>>>>> 98145eb5efa1c83f6a8c1899d2d7a2035a6d1017
-
-	myArtApp.displayArt = (pieces) => {
-		console.log(pieces);
-		if (pieces.hasImage === true){
-		}
+//Get Weather Temperature
+  shinobaApp.getWeather = (temp) => {
+		let weather = {}
+			$.ajax({
+				url: shinobaApp.weatherApiUrl,
+				appid: shinobaApp.weatherApiKey,
+				method: 'GET',
+				dataType: 'json',
+				data: {
+					appid: shinobaApp.weatherApiKey,
+					format: 'json',
+					units: 'metric',
+					q: temp
+				}
+			}).then((res) => {
+				//Populate the weather object
+				weather.city = res.name;
+				weather.temp = Math.floor(res.main.temp);
+				weather.condition = res.weather[0].main;
+				shinobaApp.sync.splice(0, 1, weather);
+				//Passes argument to getArtList
+				shinobaApp.getArtList(res.weather[0].main);
+      }).fail((error) => {
+        console.log(error);
+			})
 	}
 
-// Start myWeatherApp
-  myWeatherApp.init = () => {
-    myWeatherApp.getUserCity('toronto');
-    // myArtApp.getArt();
+//Get Art Pieces
+  shinobaApp.getArtList = (condition) => {
+    $.ajax({
+      url: shinobaApp.artApiUrl,
+      method: 'GET',
+      dataType: 'json',
+      data: {
+        key: shinobaApp.artApiKey,
+				format: 'json',
+				imgonly: true,
+        q: `${condition} painting`
+      }
+    }).then((res) => {
+			shinobaApp.getRandomArt(res);
+    }).fail((error) => {
+      console.log(error);
+    })
   }
-  
+
+//Get Random Art Piece
+  shinobaApp.getRandomArt = (artPiece) => {
+		let selectedArt = {}
+		//Gets art pieces that have an Image
+		const artList = artPiece.artObjects.filter((piece) => {
+			return piece.hasImage != ''
+		});
+		//A new array made of art pieces with images
+		const filteredArtList = artList.map((piece) => {
+			return piece
+		})
+		//Random Image Picker
+		const randomArtImage = Math.floor(Math.random() * filteredArtList.length);
+		//Populates the selectedArt object
+		selectedArt.title = filteredArtList[randomArtImage].title;
+		selectedArt.artist = filteredArtList[randomArtImage].principalOrFirstMaker;
+		selectedArt.url = filteredArtList[randomArtImage].webImage.url;
+		shinobaApp.sync.splice(1, 1, selectedArt);
+		//Checks sync of two calls
+		shinobaApp.checkSync();
+	}
+
+//Syncs all the information to trigger the DOM at the same time
+	shinobaApp.sync = ["temp", "artPiece"];
+	shinobaApp.checkSync = () => {
+		const [weather] = shinobaApp.sync;
+		const [,art] =  shinobaApp.sync;
+		if (shinobaApp.sync[0] != '' && shinobaApp.sync[1] != '') {
+			//Triggers function at the same time
+			shinobaApp.displayArt(art.url);
+			shinobaApp.displayTitle(art.title);
+			shinobaApp.displayArtist(art.artist)
+			shinobaApp.displayTemp(weather.temp);
+			shinobaApp.displayCity(weather.city);
+			shinobaApp.displayCondition(weather.condition);
+		}
+}
+
+
+//DOM Manipulation Area
+	// Display Art and Info
+	shinobaApp.displayArt = (art) => {
+		console.log(art);
+	}
+	shinobaApp.displayTitle = (title) => {
+		console.log(title);
+	}
+	shinobaApp.displayArtist = (artist) => {
+		console.log(artist);
+	}
+	//Display Weather and Info
+	shinobaApp.displayTemp = (temp) => {
+		console.log(temp);
+	}
+	shinobaApp.displayDate = (date) => {
+		console.log(date);
+	}
+	shinobaApp.displayCity = (city) => {
+		console.log(city);
+	}
+	shinobaApp.displayCondition = (condition) => {
+		console.log(condition);
+	}
+
+//Get's the user's input here
+	shinobaApp.getUserCity = (userCity) => {
+		//Get value of user input
+		shinobaApp.getWeather('Toronto');
+	}
+
+//Triggers the first function
+	shinobaApp.init = () => {
+		shinobaApp.getUserCity();
+	}
+
 // DOC READY
-	$(function (){
-		myWeatherApp.init();
-		// console.log('Ready');
-});
+	$(function () {
+		shinobaApp.init();
+	});
+
+
+
+
+  
+
+
+
+
+
+
+
 
 // PSEUDO CODE
 // CONNECT MUSEUM API
