@@ -48,26 +48,107 @@ myWeatherApp.getUserCity = (city) => {
       // only returns images with value of true
       return piece.hasImage != ''
     });
-    console.log(artList);
-    // take array of returned images and run a for loop
-    // for(let i = 0; i < artList.length; i++) {
-      // returns indexes of array
-      // choose random array index
+    // console.log(artList);
     
     // map through the array and return array of image urls
     const filteredArtList = artList.map((piece) => {
       return piece.webImage.url
     })
-    console.log(filteredArtList);
+    // console.log(filteredArtList);
     
+    // takes array of image urls and chooses a random one
     const randomArtImage = Math.floor(Math.random() * filteredArtList.length);
     console.log(filteredArtList[randomArtImage]);
 
-    // }
   }).fail((error) => {
     console.log(error);
   })
 }
+
+
+// MUSIC PLAYER TEST
+audioPlayer();
+function audioPlayer(){
+  let currentSong = 0;
+  $('.audioPlayer')[0].src = $('.playlist li a')[0];
+  $('.audioPlayer')[0].play();
+  $('.audioPlayer')[0].volume = .25;
+  $('.playlist li a').on('click', (e) => {
+    e.preventDefault();
+    $('.audioPlayer')[0].src = this;
+    $('.audioPlayer')[0].play();
+    $('.playlist li').removeClass('current-song');
+  });
+
+  $('.audioPlayer')[0].addEventListener('ended', () => {
+    currentSong ++;
+    if (currentSong === $('.playlist li a').length)
+      currentSong = 0;
+    $('.playlist li').removeClass('current-song');
+    $('.playlist li:eq('+currentSong+')').addClass('current-song');
+    $('.audioPlayer')[0].src = $('.playlist li a')[currentSong].href;
+    $('.audioPlayer')[0].play();
+  });
+}
+// Instructions for audioPlayer https://www.youtube.com/watch?v=vtZCMTtP-0Y
+
+
+// MUSIC PLAYER TRUE
+// playlist = {};
+
+// playlist.song1 = 'audio/The Most Relaxing Classical Album In The World Ever - 03 - Pachelbel - Canon.mp3';
+// playlist.song2 = 'audio/The Most Relaxing Classical Album In The World Ever - 14 - Vivaldi - The Four Seasons Largo ' Winter'.mp3';
+// playlist.song3 = 'audio/The Most Relaxing Classical Album In The World Ever - 02 - Grieg -  Peer Gynt, Op. 23 Morning.mp3';
+// playlist.song4 = 'audio/The Most Relaxing Classical Album In The World Ever - 01 - J.S. Bach - Air On The G String.mp3';
+
+// $(".music-player").trigger('load');
+// function play-audio(task) {
+//   if (task == 'play') {
+//     $(".music-player").trigger('play');
+//   } 
+//   if (task == 'stop') {
+//     $(".music-player").trigger('pause');
+//     $(".music-player").prop("currentTime", 0);
+//   }
+// }
+
+// keys = Object.keys(playlist);
+// $('.music-player').append(`<source id="sound-src" src="${playlist[keys[0]]}" type="audio/mpeg">`);
+
+// count = 0;
+// $('.music-player').on('ended', function () {
+//   count++;
+//   $(".sound-src").attr("src", playlist[keys[count]])[0];
+//   $(".music-player").trigger('load');
+//   play_audio('play');
+// });
+
+
+  // MUSIC PLAYER UNTESTED
+// let audio = $('.music-player');
+
+// audio = new Audio("start url");
+
+// audio.addEventListener('ended', function () {
+//   audio.src = "new url";
+//   audio.pause();
+//   audio.load();
+//   audio.play();
+// });
+
+
+// MUSIC PLAYER WORKS NO CONTROL STARTS
+// let sounds = new Array(new Audio("audio/The Most Relaxing Classical Album In The World Ever - 01 - J.S. Bach - Air On The G String.mp3"), new Audio("audio/The Most Relaxing Classical Album In The World Ever - 02 - Grieg -  Peer Gynt, Op. 23 Morning.mp3"));
+// let i = -1;
+// playSnd();
+
+// function playSnd() {
+//   i++;
+//   if (i == sounds.length) return;
+//   sounds[i].addEventListener('ended', playSnd);
+//   sounds[i].play();
+// }
+// MUSIC PLAYER WORKS NO CONTROL ENDS
 
 // const imageList = res.artObjects[i].map()
 // imageList = [0, 1, ]
@@ -90,7 +171,6 @@ myWeatherApp.getUserCity = (city) => {
   // DOC READY
   $(function (){
     myWeatherApp.init();
-    // console.log('Ready');
   });
 
 // PSEUDO CODE

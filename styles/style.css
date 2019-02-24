@@ -300,6 +300,9 @@ button {
 button:hover .music {
   background: #e6e6e6; }
 
+.playlist li a {
+  display: none; }
+
 @media (max-width: 600px) {
   .app-container {
     border-radius: 20px;
