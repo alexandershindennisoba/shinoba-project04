@@ -139,6 +139,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 body {
   font-size: 125%; }
 
+input {
+  border: none; }
+
 h2, h3, li {
   font-family: 'EB Garamond', serif;
   font-size: 1rem;
@@ -153,6 +156,12 @@ h3 {
 ul {
   list-style: none; }
 
+.disp-none {
+  display: none; }
+
+.disp-none {
+  display: block; }
+
 .super-container {
   width: 70%;
   max-width: 700px;
@@ -161,6 +170,9 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
@@ -172,11 +184,54 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-radius: 20px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  background: white; }
+  background: white;
+  -webkit-box-shadow: 2px 5px 20px gray;
+  box-shadow: 2px 5px 20px gray; }
+
+.app-container:hover .search-bar {
+  width: 30%; }
+
+.search-bar {
+  height: 40px;
+  width: 0%;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: black;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  opacity: .7;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
+
+.search-bar::-webkit-input-placeholder {
+  text-align: center;
+  margin: 0 auto; }
+
+.search-bar:-ms-input-placeholder {
+  text-align: center;
+  margin: 0 auto; }
+
+.search-bar::-ms-input-placeholder {
+  text-align: center;
+  margin: 0 auto; }
+
+.search-bar::placeholder {
+  text-align: center;
+  margin: 0 auto; }
 
 .painting-container {
   height: 100%;
@@ -184,8 +239,8 @@ ul {
 
 .painting {
   height: 450px;
-  width: 50%;
-  border-radius: 20px 0 0 20px;
+  width: 100%;
+  border-radius: 20px 20px 20px 20px;
   background: url(../assets/images/painting-1.jpg);
   background-size: cover;
   background-position: center;
@@ -197,10 +252,11 @@ ul {
 
 .temp-bg {
   width: 50%;
-  height: 125px;
+  height: 155px;
   z-index: 10;
   background: rgba(0, 0, 0, 0.1);
-  position: absolute; }
+  position: absolute;
+  display: none; }
 
 .disp-temp {
   text-align: center;
@@ -211,12 +267,13 @@ ul {
   left: 0;
   z-index: 20; }
 
-h1 {
+.temp {
   font-family: helvetica;
   font-size: 5.5rem;
   font-weight: 600;
   color: white;
-  position: relative; }
+  position: relative;
+  display: none; }
 
 h1::after {
   content: '';
@@ -230,6 +287,7 @@ h1::after {
   height: 450px;
   width: 50%;
   border-radius: 0 20px 20px 0;
+  background: white;
   -webkit-box-shadow: 2px 5px 20px #e6e6e6;
   box-shadow: 2px 5px 20px #e6e6e6;
   position: absolute;
@@ -245,7 +303,9 @@ h1::after {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  cursor: pointer; }
+  cursor: pointer;
+  display: none;
+  z-index: 40; }
 
 .info-painting,
 .info-weather {
@@ -262,7 +322,8 @@ h1::after {
 
 .info-painting {
   text-align: center;
-  height: 44px; }
+  height: 44px;
+  width: 80%; }
 
 .info-weather {
   height: 85px;
@@ -299,6 +360,22 @@ button:hover .music {
 
 .playlist li a {
   display: none; }
+
+.audio-container {
+  display: table;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid red;
+  background: white;
+  visibility: hidden; }
+
+.audio-player {
+  display: table;
+  margin: 0 auto; }
 
 @media (max-width: 600px) {
   .app-container {
