@@ -117,7 +117,7 @@ shinobaApp.artApiKey = 'ge9zS0UR';
 //Get's the user's input here
 	shinobaApp.getUserCity = (userCity) => {
 		//Get value of user input
-		shinobaApp.getWeather('Toronto');
+		shinobaApp.getWeather('China');
 	}
 
 //Triggers the first function
