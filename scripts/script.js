@@ -90,6 +90,31 @@ shinobaApp.artApiKey = 'ge9zS0UR';
 		}
 }
 
+// AUDIO PLAYER
+audioPlayer();
+function audioPlayer() {
+  let currentSong = 0;
+  $('.audioPlayer')[0].src = $('.playlist li a')[0];
+  $('.audioPlayer')[0].play();
+  $('.audioPlayer')[0].volume = .25;
+  $('.playlist li a').on('click', (e) => {
+    e.preventDefault();
+    $('.audioPlayer')[0].src = this;
+    $('.audioPlayer')[0].play();
+    $('.playlist li').removeClass('current-song');
+  });
+
+  $('.audioPlayer')[0].addEventListener('ended', () => {
+    currentSong++;
+    if (currentSong === $('.playlist li a').length)
+      currentSong = 0;
+    $('.playlist li').removeClass('current-song');
+    $('.playlist li:eq(' + currentSong + ')').addClass('current-song');
+    $('.audioPlayer')[0].src = $('.playlist li a')[currentSong].href;
+    $('.audioPlayer')[0].play();
+  });
+}
+
 
 //DOM Manipulation Area
 	// Display Art and Info
