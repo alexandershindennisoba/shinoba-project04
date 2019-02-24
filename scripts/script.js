@@ -121,7 +121,7 @@ function audioPlayer() {
 	// Display Art and Info
 	shinobaApp.displayArt = (art) => {
 		console.log(art);
-		
+
 	}
 	shinobaApp.displayTitle = (title) => {
 		console.log(title);
@@ -145,9 +145,13 @@ function audioPlayer() {
 
 //Get's the user's input here
 	shinobaApp.getUserCity = (userCity) => {
-		//Get value of user input
-		shinobaApp.getWeather('China');
+		$('.search-bar').on('submit', function(e){
+			if ($('.search-bar').val() !== '') {
+				console.log(userCity);
+			}
+		})
 	}
+
 
 //Triggers the first function
 	shinobaApp.init = () => {
