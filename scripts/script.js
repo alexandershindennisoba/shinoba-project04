@@ -44,9 +44,9 @@ myWeatherApp.getUserCity = (city) => {
   }).then((res) => {
     // res is result of the query weather condition. gives back an object with array of artObjects
     // console.log(res);
-    const artList = res.artObjects.filter((value) => {
+    const artList = res.artObjects.filter((piece) => {
       // only returns images with value of true
-      return value.hasImage != ''
+      return piece.hasImage != ''
     });
     console.log(artList);
     // take array of returned images and run a for loop
