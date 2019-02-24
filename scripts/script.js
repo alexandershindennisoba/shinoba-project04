@@ -4,6 +4,7 @@ shinobaApp.weatherApiKey = '53676921d77f931b9699b38ab357d31e';
 shinobaApp.artApiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
 shinobaApp.artApiKey = 'ge9zS0UR';
 
+
 //Get Weather Temperature
   shinobaApp.getWeather = (temp) => {
 		let weather = {}
@@ -49,6 +50,7 @@ shinobaApp.artApiKey = 'ge9zS0UR';
       console.log(error);
     })
   }
+
 
 //Get Random Art Piece
   shinobaApp.getRandomArt = (artPiece) => {
