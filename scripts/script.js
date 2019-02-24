@@ -77,6 +77,7 @@ shinobaApp.artApiKey = 'ge9zS0UR';
 //Syncs all the information to trigger the DOM at the same time
 	shinobaApp.sync = ["temp", "artPiece"];
 	shinobaApp.checkSync = () => {
+		console.log(shinobaApp.sync)
 		const [weather] = shinobaApp.sync;
 		const [,art] =  shinobaApp.sync;
 		if (shinobaApp.sync[0] != '' && shinobaApp.sync[1] != '') {
@@ -91,7 +92,7 @@ shinobaApp.artApiKey = 'ge9zS0UR';
 }
 
 // AUDIO PLAYER
-audioPlayer();
+// audioPlayer();
 function audioPlayer() {
   let currentSong = 0;
   $('.audioPlayer')[0].src = $('.playlist li a')[0];
@@ -120,6 +121,7 @@ function audioPlayer() {
 	// Display Art and Info
 	shinobaApp.displayArt = (art) => {
 		console.log(art);
+		
 	}
 	shinobaApp.displayTitle = (title) => {
 		console.log(title);
@@ -152,6 +154,7 @@ function audioPlayer() {
 		shinobaApp.getUserCity();
 	}
 
+
 // DOC READY
 	$(function () {
 		shinobaApp.init();
@@ -161,9 +164,6 @@ function audioPlayer() {
 
 
   
-
-
-
 
 
 

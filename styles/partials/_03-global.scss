@@ -7,6 +7,10 @@ body {
     font-size: 125%;
 }
 
+input {
+    border: none;
+}
+
 h2, h3, li {
     font-family: 'EB Garamond', serif;
     font-size: 1rem;
@@ -23,4 +27,12 @@ h3 {
 
 ul {
     list-style: none;
+}
+
+.disp-none {
+    display: none;
+}
+
+.disp-none {
+    display: block;
 }
