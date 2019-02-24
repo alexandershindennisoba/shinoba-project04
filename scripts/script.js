@@ -50,13 +50,20 @@ myWeatherApp.getUserCity = (city) => {
     });
     console.log(artList);
     // take array of returned images and run a for loop
-    for(let i = 0; i < artList.length; i++) {
+    // for(let i = 0; i < artList.length; i++) {
       // returns indexes of array
       // choose random array index
-      const randomArtImage = Math.floor(Math.random() * artList.length);
-      console.log(artList[randomArtImage].webImage.url);
+    
+    // map through the array and return array of image urls
+    const filteredArtList = artList.map((piece) => {
+      return piece.webImage.url
+    })
+    console.log(filteredArtList);
+    
+    const randomArtImage = Math.floor(Math.random() * filteredArtList.length);
+    console.log(filteredArtList[randomArtImage]);
 
-    }
+    // }
   }).fail((error) => {
     console.log(error);
   })
