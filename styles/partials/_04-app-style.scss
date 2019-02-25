@@ -23,8 +23,31 @@
 
 .app-container:hover .search-bar{
     // height: 40px;
-    width: 30%;
+    width: 50%;
     // opacity: .7;
+}
+
+.con {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    z-index: 100;
+}
+
+.con-class {
+    width: 50%;
+}
+
+
+.search-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .search-bar {
@@ -44,7 +67,11 @@
     right: 0;
     z-index: 100;
     opacity: .7;
-    transition: all 1s ease;
+    transition: all .5s ease;
+}
+
+.search-bottom {
+    bottom: 40px;
 }
 
 
@@ -55,8 +82,13 @@
 }
 
 .painting-container {
+
     height: 100%;
     width: 100%;
+}
+
+.painting-container-width {
+    width: 50%;
 }
 
 
@@ -72,6 +104,25 @@
     top: 0;
     left: 0;
     bottom: 0;
+    transition: all 1s ease;
+}
+
+.painting-left {
+    width: 50%;
+    border-radius: 20px 0 0 20px;
+}
+
+.new-image {
+    // height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index:30;
+    border: 1px solid red;
+    border-radius: 20px;
 }
 
 .temp-bg {
@@ -86,10 +137,6 @@
 .disp-temp {
     text-align: center;
     width: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: 20;
 }
 
@@ -100,6 +147,7 @@
     color: white;
     position: relative;
     display: none; 
+    // border: 1px solid red;
 }
 
 h1::after {
@@ -111,7 +159,7 @@ h1::after {
     position: absolute;
 }
 
-.info {
+.info-container {
     height: 450px;
     width: 50%;
     border-radius: 0 20px 20px 0;
@@ -120,15 +168,42 @@ h1::after {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;  
+    bottom: 0; 
+    z-index: 40;
+    display: none;
+    // border: 1px solid red;
+}
+
+.info {
+    height: 100%;
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+    background: white;
+    box-shadow: 2px 5px 20px lighten(grey, 40);
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;  
     display: flex; 
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    display: none;
-    z-index: 40;
+    z-index: 45;
+    // overflow: hidden;
     // border: 1px solid red;
 }
+
+
+// .info::after {
+//     content: '';
+//     position: absolute;
+//     display: block;
+//     top: 0;
+//     right: 350px;
+//     transition: all .5s
+
+
+// }
 
 .info-painting,
 .info-weather {
@@ -228,8 +303,24 @@ button:hover .music {
     button {
         display: none;
     }
+
+    .info-container {
+        background: none;
+        box-shadow: none;
+    }
+
+    .con {
+        width: 100%;
+    }
+    // .temp-bg {
+    //     top: 50px;
+    // }
+    // .temp {
+    //     bottom: 140px;
+    // }
+}   
+
+.display-flex {
+    display: flex;
 }
-
-
-
 
