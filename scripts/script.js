@@ -4,6 +4,12 @@ shinobaApp.weatherApiKey = '53676921d77f931b9699b38ab357d31e';
 shinobaApp.artApiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
 shinobaApp.artApiKey = 'ge9zS0UR';
 
+const audio1 = $('audio-1')[0];
+const audio2 = $('audio-2')[0];
+const audio3 = $('audio-3')[0];
+const audio4 = $('audio-4')[0];
+
+
 
 //Get Weather Temperature
   shinobaApp.getWeather = (temp) => {
@@ -149,19 +155,17 @@ function audioPlayer() {
 	}
 	shinobaApp.displayCity = (city) => {
 		console.log(city);
-		$('.city').text(city);
+		$('.city').text(`Location: ${city}`);
 	}
 	shinobaApp.displayCondition = (condition) => {
 		console.log(condition);
-		$('.condition').text(condition);
+		$('.condition').text(`Condition: ${condition}`);
 	}
 
 	$('.info').on('click', function(e){
 		e.preventDefault();
 		$('.info-painting').toggle();
 		$('.info-weather').toggle();
-		// $('.info-painting').fadeOut();
-		// $('.info-weather').fadeIn();
 	})
 
 //Get's the user's input here

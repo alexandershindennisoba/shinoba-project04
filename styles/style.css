@@ -377,14 +377,19 @@ h1::after {
 
 .info-painting {
   text-align: center;
-  height: 44px;
+  height: 65px;
   width: 80%; }
 
 .info-weather {
   height: 85px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  text-align: center;
   display: none; }
   .info-weather li {
-    font-size: .85rem; }
+    font-size: .85rem;
+    padding: 5px 0; }
 
 button {
   height: 30px;
