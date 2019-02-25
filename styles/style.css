@@ -280,6 +280,19 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0; }
+
+.painting-2 {
+  height: 450px;
+  width: 100%;
+  border-radius: 20px 20px 20px 20px;
+  background: url(../assets/images/preview.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
   bottom: 0;
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -320,6 +333,12 @@ ul {
   color: white;
   position: relative;
   display: none; }
+
+.decor {
+  margin: 4px auto;
+  width: 50%;
+  height: 2px;
+  background: #e6e6e6; }
 
 h1::after {
   content: '';
@@ -377,7 +396,8 @@ h1::after {
 
 .info-painting {
   text-align: center;
-  height: 65px;
+  min-height: 70px;
+  max-height: 100;
   width: 80%; }
 
 .info-weather {
@@ -392,31 +412,32 @@ h1::after {
     padding: 5px 0; }
 
 button {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   border: none;
   border-radius: 50%;
   position: absolute;
-  bottom: 2%;
-  right: 2%;
-  z-index: 30;
-  background: #f8f8f8;
+  bottom: 3%;
+  right: 5%;
+  z-index: 50;
+  opacity: 0;
+  background: #e6e6e6;
   cursor: pointer;
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease; }
   button .music {
-    height: 10px;
-    width: 10px;
+    height: 5px;
+    width: 5px;
     margin: 0 auto;
     background: #9a9a9a;
-    border-radius: 50%;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease; }
+    border-radius: 50%; }
 
 button:hover .music {
   background: #e6e6e6; }
+
+.button-opacity {
+  opacity: 1; }
 
 .playlist li a {
   display: none; }
@@ -451,6 +472,8 @@ button:hover .music {
     right: 0;
     bottom: 0;
     left: 0; }
+  .painting-2 {
+    height: 550px; }
   .info {
     display: none; }
   button {
