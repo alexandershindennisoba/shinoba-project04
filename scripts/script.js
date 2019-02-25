@@ -88,6 +88,11 @@ shinobaApp.artApiKey = 'ge9zS0UR';
 			shinobaApp.displayTemp(weather.temp);
 			shinobaApp.displayCity(weather.city);
 			shinobaApp.displayCondition(weather.condition);
+			$('.info-container').fadeIn();
+			$('.info-container').addClass('animated slideInLeft delay-.5s fadeIn delay-.5s');
+			setTimeout(function () {
+				$('.painting').addClass('painting-left')
+			}, 400);
 		}
 }
 
@@ -122,32 +127,55 @@ function audioPlayer() {
 	shinobaApp.displayArt = (art) => {
 		console.log(art);
 
+		$('.painting').css('background-image', `url("${art}")`);
 	}
 	shinobaApp.displayTitle = (title) => {
 		console.log(title);
+		$('.info-painting h2').text(title);
 	}
 	shinobaApp.displayArtist = (artist) => {
 		console.log(artist);
+		$('.info-painting h3').text(artist);
 	}
 	//Display Weather and Info
 	shinobaApp.displayTemp = (temp) => {
 		console.log(temp);
+		$('.temp').text(temp);
+		$('.temp').fadeIn();
+		$('.temp-bg').fadeIn();
 	}
 	shinobaApp.displayDate = (date) => {
 		console.log(date);
 	}
 	shinobaApp.displayCity = (city) => {
 		console.log(city);
+		$('.city').text(city);
 	}
 	shinobaApp.displayCondition = (condition) => {
 		console.log(condition);
+		$('.condition').text(condition);
 	}
+
+	$('.info').on('click', function(e){
+		e.preventDefault();
+		$('.info-painting').toggle();
+		$('.info-weather').toggle();
+		// $('.info-painting').fadeOut();
+		// $('.info-weather').fadeIn();
+	})
 
 //Get's the user's input here
 	shinobaApp.getUserCity = (userCity) => {
-		$('.search-bar').on('submit', function(e){
-			if ($('.search-bar').val() !== '') {
-				console.log(userCity);
+		$('form').on('submit', function(e) {
+			e.preventDefault();
+			
+			$('.con').addClass('animated fadeIn delay-1s');
+			$('.con').addClass('con-class');
+			$('.search-bar').addClass('search-bottom');
+			const city = $('input[type=text]').val();
+			if (city != '') {
+				$('input').val('');
+				shinobaApp.getWeather(city);
 			}
 		})
 	}
