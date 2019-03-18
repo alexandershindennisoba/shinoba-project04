@@ -1,5 +1,5 @@
 const shinobaApp = {}
-shinobaApp.weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+shinobaApp.weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather';
 shinobaApp.weatherApiKey = '53676921d77f931b9699b38ab357d31e';
 shinobaApp.artApiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
 shinobaApp.artApiKey = 'NYUbDvNc';
