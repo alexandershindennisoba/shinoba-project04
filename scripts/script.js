@@ -1,5 +1,5 @@
 const shinobaApp = {}
-shinobaApp.weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+shinobaApp.weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather';
 shinobaApp.weatherApiKey = '53676921d77f931b9699b38ab357d31e';
 shinobaApp.artApiUrl = 'https://www.rijksmuseum.nl/api/en/collection/';
 shinobaApp.artApiKey = 'NYUbDvNc';
@@ -134,7 +134,6 @@ shinobaApp.displayArt = (art) => {
 		$('.painting').fadeIn(1200);
 	}, 500);
 }
-
 shinobaApp.displayTitle = (title) => {
 	$('.info-painting').fadeIn(1500);
 	$('.info-painting h2').text(title);
@@ -148,8 +147,7 @@ shinobaApp.displayTemp = (temp) => {
 	$('.temp').fadeIn(1500);
 	$('.temp-bg').fadeIn(1200);
 }
-shinobaApp.displayDate = (date) => {
-}
+
 shinobaApp.displayCity = (city) => {
 	$('.city').text(`Location: ${city}`);
 }
@@ -157,12 +155,23 @@ shinobaApp.displayCondition = (condition) => {
 	$('.condition').text(`Condition: ${condition}`);
 }
 
+
 $('.info').on('click', function (e) {
 	e.preventDefault();
 	$('.info-painting').toggle();
 	$('.info-weather').toggle();
 })
 
+//Get Date
+shinobaApp.displayDate = () => {
+	shinobaApp.monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December']
+	shinobaApp.today = new Date();
+	shinobaApp.day = shinobaApp.today.getDate();
+	shinobaApp.month = shinobaApp.today.getMonth() + 1;
+	shinobaApp.year = shinobaApp.today.getFullYear();
+	shinobaApp.thisMonth = shinobaApp.monthName[shinobaApp.month - 1];
+	$('.date').text(`${shinobaApp.thisMonth} ${shinobaApp.day} ${shinobaApp.year}`);
+}
 
 //Get's the user's input here
 shinobaApp.getUserCity = () => {
@@ -187,6 +196,7 @@ shinobaApp.getUserCity = () => {
 //Triggers the first function
 shinobaApp.init = () => {
 	shinobaApp.getUserCity();
+	shinobaApp.displayDate();
 }
 
 // DOC READY
